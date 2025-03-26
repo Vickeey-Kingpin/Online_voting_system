@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    
+    <div class="header">
+        <div class="logo">
+            <a href=""><img src="{% static 'images/votelogo.png' %}">
+                <h3>Taita Taveta University <br> Online Voting System</h3>
+            </a>
+        </div>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="">HOME</a></li>
+                <li><a href="">VOTE</a></li>
+                <li><a class="active" href="">CANDIDATES</a></li>
+                <li><a href="">LOGIN</a></li>
+                <li><a href="">DELICATE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="message">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        <a href=""><i class="fa fa-window-close"></i></a>
+        {% endfor %}
+    </div>
+
+    <!-- <div class="candidates">
+        <form method="POST">
+            {% csrf_token %}
+            <h3>{{ department }} department candidates</h3>
+    
+            <div class="candidates-container">
+                <h4>Male representative</h4>
+                {% if male_delegates %}
+                    {% if male_delegates|length == 1 %}
+                        <p>Position Unopposed</p>
+                    {% else %}
+                        {% for deligate in male_delegates %}
+                        <div class="cand">
+                            <input type="radio" name="vote" id="{{deligate.id}}" value="{{deligate.vote}}" required>
+                            <img src="{% static 'images/person2.jpg' %}">
+                            <h5>{{ deligate.get_full_name }}</h5>
+                            <p><i class="fa fa-quote-left"></i> {{ deligate.about }}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    <p>No delegate</p>
+                {% endif %}
+            </div>
+    
+            <div class="candidates-container">
+                <h4>Female representative</h4>
+                {% if female_delegates %}
+                    {% if female_delegates|length == 1 %}
+                        <p>Position Unopposed</p>
+                    {% else %}
+                        {% for deligate in female_delegates %}
+                        <div class="cand">
+                            <input type="checkbox" name="vote">
+                            <img src="{% static 'images/person2.jpg' %}">
+                            <h5>{{ deligate.get_full_name }}</h5>
+                            <p><i class="fa fa-quote-left"></i> {{ deligate.about }}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    <p>No delegate</p>
+                {% endif %}
+            </div>
+    
+            <div class="candidates-container">
+                <h4>Academic representative</h4>
+                {% if academic_delegates %}
+                    {% if academic_delegates|length == 1 %}
+                        <p>Position Unopposed</p>
+                    {% else %}
+                        {% for deligate in academic_delegates %}
+                        <div class="cand">
+                            <input type="checkbox" name="vote">
+                            <img src="{% static 'images/person2.jpg' %}">
+                            <h5>{{ deligate.get_full_name }}</h5>
+                            <p><i class="fa fa-quote-left"></i> {{ deligate.about }}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    <p>No delegate</p>
+                {% endif %}
+            </div>
+    
+            <button class="normal" type="submit">Submit</button>
+        </form>
+    </div>    -->
+
+    <div class="candidates">
+        {% if department %}
+        <h3>{{ department.name }} Department Candidates</h3>
+        {% else %}
+        <h3>Department not available</h3>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="candidates-container">
+                <h4>Male representative</h4>
+                {% if male_delegates %}
+                    {% if male_delegates|length == 1 %}
+                        <p>Position Unopposed</p>
+                    {% else %}
+                        {% for deligate in male_delegates %}
+                        <div class="cand">
+                            <input type="radio" name="male_vote" id="{{ deligate.id }}" value="{{ deligate.id }}" required>
+                            <img src="{% static 'images/person2.jpg' %}">
+                            <h5>{{ deligate.get_full_name }}</h5>
+                            <p><i class="fa fa-quote-left"></i> {{ deligate.about }}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    <p>No delegate</p>
+                {% endif %}
+            </div>
+            
+            <div class="candidates-container">
+                <h4>Female representative</h4>
+                {% if female_delegates %}
+                    {% if female_delegates|length == 1 %}
+                        <p>Position Unopposed</p>
+                    {% else %}
+                        {% for deligate in female_delegates %}
+                        <div class="cand">
+                            <input type="radio" name="female_vote" id="{{ deligate.id }}" value="{{ deligate.id }}">
+                            <img src="{% static 'images/person2.jpg' %}">
+                            <h5>{{ deligate.get_full_name }}</h5>
+                            <p><i class="fa fa-quote-left"></i> {{ deligate.about }}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    <p>No delegate</p>
+                {% endif %}
+            </div>
+            
+            <div class="candidates-container">
+                <h4>Academic representative</h4>
+                {% if academic_delegates %}
+                    {% if academic_delegates|length == 1 %}
+                        <p>Position Unopposed</p>
+                    {% else %}
+                        {% for deligate in academic_delegates %}
+                        <div class="cand">
+                            <input type="radio" name="academic_vote" id="{{ deligate.id }}" value="{{ deligate.id }}">
+                            <img src="{% static 'images/person2.jpg' %}">
+                            <h5>{{ deligate.get_full_name }}</h5>
+                            <p><i class="fa fa-quote-left"></i> {{ deligate.about }}</p>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                    <p>No delegate</p>
+                {% endif %}
+            </div>
+            <button class="normal" type="submit">Submit</button>   
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="div">
+            <div class="col">
+                <h3>ADDRESS</h3>
+                <li>
+                    <i class="fa fa-map-marker"></i>
+                    <p>Taita taveta university, Voi</p>
+                </li>
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <p>P.O Box 45371 - 00100, Voi.</p>
+                </li>
+                <li>
+                    <i class="fa fa-phone"></i>
+                    <p>Tell No: (254) 7 12 234 564</p>
+                </li>
+                <li>
+                    <i class="fa fa-at"></i>
+                    <p>Email Address: taitaonlinevoting@gmail.com</p>
+                </li>
+            </div>
+
+            <div class="col">
+                <h3>ABOUT</h3>
+                <a href="#">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Private Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <div class="col">
+                <h3>MY ACCOUNTS</h3>
+                <a href="#">Sign In </a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="col">
+                <h3>WORK WITH US</h3>
+                <a href="#">Vacancies</a>
+                <a href="#">Tenders</a>
+                <a href="#">Vacancies</a>
+                <a href="#">Tenders</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2024. Vickeey etc - HTML CSS Ecommerce Template</p>
+        </div>
+    </div>
+
+</body>
+{% endblock content %}

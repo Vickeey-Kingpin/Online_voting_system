@@ -1,0 +1,306 @@
+button.normal{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+}
+.header .logo{
+    display: flex;
+}
+.header .logo a{
+    color: #000;
+    text-decoration: none;
+    display: flex;
+}
+.header .logo img{
+    width: 80px;
+}
+#navbar{
+    display: flex;
+}
+#navbar li{
+    list-style-type: none;
+    padding: 0 30px;
+    font-family: Helvetica;
+}
+#navbar li a{
+    text-decoration: none;
+    color: #1a1a1a;
+    padding: 16px 32px;
+    transition: 0.5s ease;
+}
+#navbar li a:hover,
+#navbar li a.active{
+    background: #008000;
+    color: #fff;
+}
+.message{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #E5E4E2;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+.message p{
+    font-family: Brush Script MT;
+    font-size: 20px;
+}
+.message i{
+    color: red;
+    font-size: 20px;
+}
+.message i:hover{
+    color: 	#D22B2B;
+}
+.body{
+    /* background-image: url(/images/ttu.jpg); */
+    height: 80vh;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+}
+.body .content{
+    align-content: center;
+}
+.body .content h4{
+    font-size: 30px;
+    font-family:  cursive;
+    color: #00308F;
+}
+.body .content p{
+    font-size: 20px;
+    line-height: 25px;
+    color:#707070;
+}
+.body .content button{
+    background-color: #008000;
+    border: none;
+    color: #fff;
+    padding: 14px 80px 14px 65px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.footer{
+    margin-top: 50px;
+    background-image: url(/static/images/votebanner.jpg);
+    padding: 20px;
+    background-size: cover;
+}
+.footer div{
+    display: flex;
+    justify-content: space-between;
+    font-family:  Arial, sans-serif;
+}
+.footer .col{
+    display: flex;
+    flex-direction: column;
+}
+.footer .col h3{
+    font-family: Verdana;
+}
+.footer .col li{
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    color: #008000;
+}
+.footer .col li i{
+    margin-right: 5px;
+    color: #fff;
+}
+.footer .col a{
+    text-decoration: none;
+    margin-bottom: 10px;
+    color: #008000;
+}
+.footer .copyright p{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
+.vote{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 80px;
+    border: 1px solid #cfcfcf;
+    margin: 20px;
+    border-radius: 4px;
+}
+.vote .details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #E8E8E8;
+    width: 35%;
+    padding: 20px;
+    border-radius: 4px;
+}
+.vote .details input, select{
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 90%;
+}
+.vote .details select{
+    color: #8d8a8a;
+    width: 520px;
+}
+.vote .details button{
+    background: #008000;
+    color: #fff;
+    width: 99%;
+    margin-top: 20px;
+}
+.candidates{
+    padding: 20px 80px;
+}
+.candidates .cand{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+.candidates .candidates-container{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    background: #E8E8E8;
+    margin-bottom: 20px;
+}
+.candidates h4{
+    font-family: Verdana;
+}
+.candidates .cand img{
+    width: 80px;
+}
+.candidates .cand h5{
+    letter-spacing: 5px;
+    width: 20%;
+}
+.candidates .cand p{
+    width: 60%;
+    font-family: Helvetica;
+}
+.candidates button{
+    background: #008000;
+    color: #fff;
+    width: 300px;
+}
+.vote .instruction{
+    width: 60%;
+}
+.vote h4{
+    font-family: cursive;
+    font-size: 25px;
+    color: #00308F;
+}
+.vote .instruction img{
+    width: 70%;
+    height: 400px;
+}
+.vote .instruction li{
+    list-style-type: lower-roman;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 25px;
+    color: 	#909090;
+}
+.success{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.success h2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+.success div{
+    background: #00AB66;
+    padding: 2px 10px;
+    border-radius: 4px;
+    color: #fff;
+}
+.success h5{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.success h5 i{
+    margin-right: 10px;
+}
+.success h6{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-top: 0;
+}
+.success p{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
+}
+.accounts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+.accounts .container{
+    width: 420px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 20px;
+    margin-top: 20px;
+}
+.accounts .container h2{
+    text-align: center;
+    font-family: Verdana;
+}
+.accounts .container .input-box{
+    width: 100%;
+    position: relative;
+}
+.accounts .container .input-box input,
+textarea{
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.accounts .container .input-box textarea{
+    height: 150px;
+}
+.accounts .container .input-box i{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.accounts .container button{
+    width: 100%;
+    background: #0039a6;
+    color: #fff;
+}
+.accounts .container p{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.accounts .container p a{
+    color: #000;
+    text-decoration: none;
+    font-family: Brush Script MT;
+    font-size: 20px;
+    transition: 0.5s ease;
+}
+.accounts .container p a:hover{
+    text-decoration: underline;
+
+}

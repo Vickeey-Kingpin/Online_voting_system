@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>   
+    <div class="header">
+        <div class="logo">
+            <a href=""><img src="{% static 'images/votelogo.png' %}">
+                <h3>Taita Taveta University <br> Online Voting System</h3>
+            </a>
+        </div>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="">HOME</a></li>
+                <li><a class="active"  href="">VOTE</a></li>
+                <li><a href="">CANDIDATES</a></li>
+                <li><a href="">LOGIN</a></li>
+                <li><a href="">DELICATE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="message">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        <a href=""><i class="fa fa-window-close"></i></a>
+        {% endfor %}
+    </div>
+
+    <div class="vote">
+        <div class="instruction">
+            <h4>Voting instructions</h4>
+            <img src="{% static 'images/OnlineVotingInstructions.jpg' %}">
+            <li>Login or Register. If you don’t have an account, please register.</li>
+            <li>Provide the required details, including your name and registration number.</li>
+            <li>After registration or login, you will be directed to a page displaying the candidates from your department.</li>
+            <li>Choose one candidate per option from the list provided.</li>
+            <li>Once you have made your selections, click the "Submit" button.</li>
+            <li>You will then be directed to a success page confirming your submission</li>
+        </div>
+        <div class="details">
+            <form method="POST">
+                {% csrf_token %}
+                <h4>Enter your details here</h4>
+                <input type="text" name="fullname" placeholder="Enter your full name">
+                <input type="text" name="reg_no" placeholder="Enter your registration number">
+                {{form.departments}}
+                <select name="stage" required>
+                    <option value="">Select your stage</option>
+                    {% for value, label in stages %}
+                        <option value="{{ value }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+                <!-- <select id="country" name="country">
+                    <option>Enter your department</option>
+                    <option>Informatics and Computing</option>
+                    <option>Business and Information</option>
+                </select> -->
+                <button type="submit" class="normal">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="div">
+            <div class="col">
+                <h3>ADDRESS</h3>
+                <li>
+                    <i class="fa fa-map-marker"></i>
+                    <p>Taita taveta university, Voi</p>
+                </li>
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <p>P.O Box 45371 - 00100, Voi.</p>
+                </li>
+                <li>
+                    <i class="fa fa-phone"></i>
+                    <p>Tell No: (254) 7 12 234 564</p>
+                </li>
+                <li>
+                    <i class="fa fa-at"></i>
+                    <p>Email Address: taitaonlinevoting@gmail.com</p>
+                </li>
+            </div>
+
+            <div class="col">
+                <h3>ABOUT</h3>
+                <a href="#">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Private Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <div class="col">
+                <h3>MY ACCOUNTS</h3>
+                <a href="#">Sign In </a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+
+            <div class="col">
+                <h3>WORK WITH US</h3>
+                <a href="#">Vacancies</a>
+                <a href="#">Tenders</a>
+                <a href="#">Vacancies</a>
+                <a href="#">Tenders</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>© 2024. Vickeey etc - HTML CSS Ecommerce Template</p>
+        </div>
+    </div>
+</body>
+{% endblock content %}
