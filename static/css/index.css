@@ -178,6 +178,11 @@ button.normal{
     background: #E8E8E8;
     margin-bottom: 20px;
 }
+.candidates h3{
+    text-transform: capitalize;
+    font-family: Lucida Handwriting;
+    color: #0039a6;
+}
 .candidates h4{
     font-family: Verdana;
 }

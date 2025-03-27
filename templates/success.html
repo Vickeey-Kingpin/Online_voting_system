@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    
+    <div class="header">
+        <div class="logo">
+            <a href=""><img src="{% static 'images/votelogo.png' %}">
+                <h3>Taita Taveta University <br> Online Voting System</h3>
+            </a>
+        </div>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="">HOME</a></li>
+                <li><a href="">VOTE</a></li>
+                <li><a href="">CANDIDATES</a></li>
+                <li><a href="">LOGIN</a></li>
+                <li><a href="">DELICATE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="message">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        <a href=""><i class="fa fa-window-close"></i></a>
+        {% endfor %}
+    </div>
+
+
+    <div class="success">
+        <h2>TAITA TAVETA UNIVERSITY STUDENTS ELECTION</h2>
+        <div>
+            <h5><i class="fa fa-check-square-o"></i>Success!!</h5>
+            <h6>Ballot Submitted</h6>
+        </div>
+        <p>You have Already voted for this election</p>
+    </div>
+
+</body>
+{% endblock content %}

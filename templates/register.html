@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    
+    <div class="header">
+        <div class="logo">
+            <a href=""><img src="{% static 'images/votelogo.png' %}">
+                <h3>Taita Taveta University <br> Online Voting System</h3>
+            </a>
+        </div>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="">HOME</a></li>
+                <li><a href="">VOTE</a></li>
+                <li><a href="">CANDIDATES</a></li>
+                <li><a class="active" href="">REGISTER</a></li>
+                <li><a href="">DELIGATE</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="message">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        <a href=""><i class="fa fa-window-close"></i></a>
+        {% endfor %}
+    </div>
+
+    <div class="accounts">
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                <h2>Voter Registration</h2>
+                <div class="input-box">
+                    <input type="text" name="first_name" placeholder="Enter your First name">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="last_name" placeholder="Enter your last name">
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="reg_no" placeholder="Enter Registration number">
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Input your password">
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password2" placeholder="Re-enter your password to confirm">
+                </div>
+                <button type="submit" class="normal">Register</button>
+                <div class="register-link">
+                    <p>Already have an account? <a href="">Sign in here</a></p>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+
+</body>
+{% endblock content %}

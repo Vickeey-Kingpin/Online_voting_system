@@ -1,6 +1,29 @@
 from django.db import models
+from django.contrib.auth.hashers import make_password
 
 # Create your models here.
+class Student(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    reg_no = models.CharField(max_length=100)
+    password = models.CharField(max_length=255)
+    is_active = models.BooleanField(default=True)
+
+    USERNAME_FIELD = 'reg_no'
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+    
+    def set_password(self, raw_password):
+        """Hashes the password before saving it."""
+        self.password = make_password(raw_password)
+
+    def save(self, *args, **kwargs):
+        if self.password and not self.password.startswith('pbkdf2_sha256$'):
+            self.set_password(self.password)
+        super().save(*args, **kwargs)
+
 class Department(models.Model):
     name = models.CharField(max_length=100)
 

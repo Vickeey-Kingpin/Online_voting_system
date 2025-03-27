@@ -28,78 +28,9 @@
         {% endfor %}
     </div>
 
-    <!-- <div class="candidates">
-        <form method="POST">
-            {% csrf_token %}
-            <h3>{{ department }} department candidates</h3>
-    
-            <div class="candidates-container">
-                <h4>Male representative</h4>
-                {% if male_delegates %}
-                    {% if male_delegates|length == 1 %}
-                        <p>Position Unopposed</p>
-                    {% else %}
-                        {% for deligate in male_delegates %}
-                        <div class="cand">
-                            <input type="radio" name="vote" id="{{deligate.id}}" value="{{deligate.vote}}" required>
-                            <img src="{% static 'images/person2.jpg' %}">
-                            <h5>{{ deligate.get_full_name }}</h5>
-                            <p><i class="fa fa-quote-left"></i> {{ deligate.about }}</p>
-                        </div>
-                        {% endfor %}
-                    {% endif %}
-                {% else %}
-                    <p>No delegate</p>
-                {% endif %}
-            </div>
-    
-            <div class="candidates-container">
-                <h4>Female representative</h4>
-                {% if female_delegates %}
-                    {% if female_delegates|length == 1 %}
-                        <p>Position Unopposed</p>
-                    {% else %}
-                        {% for deligate in female_delegates %}
-                        <div class="cand">
-                            <input type="checkbox" name="vote">
-                            <img src="{% static 'images/person2.jpg' %}">
-                            <h5>{{ deligate.get_full_name }}</h5>
-                            <p><i class="fa fa-quote-left"></i> {{ deligate.about }}</p>
-                        </div>
-                        {% endfor %}
-                    {% endif %}
-                {% else %}
-                    <p>No delegate</p>
-                {% endif %}
-            </div>
-    
-            <div class="candidates-container">
-                <h4>Academic representative</h4>
-                {% if academic_delegates %}
-                    {% if academic_delegates|length == 1 %}
-                        <p>Position Unopposed</p>
-                    {% else %}
-                        {% for deligate in academic_delegates %}
-                        <div class="cand">
-                            <input type="checkbox" name="vote">
-                            <img src="{% static 'images/person2.jpg' %}">
-                            <h5>{{ deligate.get_full_name }}</h5>
-                            <p><i class="fa fa-quote-left"></i> {{ deligate.about }}</p>
-                        </div>
-                        {% endfor %}
-                    {% endif %}
-                {% else %}
-                    <p>No delegate</p>
-                {% endif %}
-            </div>
-    
-            <button class="normal" type="submit">Submit</button>
-        </form>
-    </div>    -->
-
     <div class="candidates">
         {% if department %}
-        <h3>{{ department.name }} Department Candidates</h3>
+        <h3>{{ department }} Department Candidates</h3>
         {% else %}
         <h3>Department not available</h3>
         {% endif %}

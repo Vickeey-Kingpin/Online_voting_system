@@ -14,3 +14,4 @@ class deligateAdmin(admin.ModelAdmin):
     ordering = ['vote']
 
 admin.site.register(Deligate,deligateAdmin)
+admin.site.register(Student)
